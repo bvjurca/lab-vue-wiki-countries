@@ -1,16 +1,25 @@
 <template>
   <div class="app">
-    <router-view />
-    <Navbar />
+     <Navbar />
+     <div class="container">
+      <div class="row">
+         <CountriesList :countries="countries" />
+         <router-view />
+      </div>
+     </div>
+   
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
+import CountriesList from './components/CountriesList.vue';
 
 export default {
-  components: { Navbar },
-};
+  name: 'App',
+  components: { Navbar, CountriesList },
+  
+}
 </script>
 
 <style>
