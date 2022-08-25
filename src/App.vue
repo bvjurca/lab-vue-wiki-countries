@@ -14,11 +14,29 @@
 <script>
 import Navbar from './components/Navbar.vue';
 import CountriesList from './components/CountriesList.vue';
+import countriesData from '../public/countries.json';
 
 export default {
   name: 'App',
   components: { Navbar, CountriesList },
-  
+  data() {
+    return {
+      countries: countriesData,
+    };
+  },
+  computed: {
+    processCountries() {
+      var count = 0;
+      return this.countries.map(country => {
+        return {
+          id: ++count,
+          name: country.name.common,
+          alpha2Code: country.alpha2Code,
+          alpha3Code: country.alpha3Code,
+        }
+      });
+    },
+  }
 }
 </script>
 
