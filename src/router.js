@@ -10,26 +10,12 @@ const routes = [
   },
   {
     path: '/:countryCode',
-    name: '/countryDetails',
+    name: '/CountryDetails',
+    component: () => import('./components/CountryDetails.vue'),
   },
-//   {
-//     path: '/list',
-//     name: 'list',
-//     component: () => import(/* webpackChunkName: 'list' */ './pages/CountriesList.vue')
-//     children: [
-//       {
-//         path: '/details',
-//         name: 'details',
-//         component: () => import(/* webpackChunkName: 'details' */ './pages/CountriesDetails.vue')
-//       },
-//     ]
-//   }
 ];
 
 export default createRouter({
   history: createWebHistory('/'),
   routes,
-  scrollBehavior() {
-    document.getElementById('app').scrollIntoView();
-  }
 });

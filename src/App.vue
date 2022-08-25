@@ -3,7 +3,7 @@
      <Navbar />
      <div class="container">
       <div class="row">
-         <CountriesList :countries="countries" />
+         <CountriesList />
          <router-view />
       </div>
      </div>
@@ -12,31 +12,23 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'pinia';
 import Navbar from './components/Navbar.vue';
+import CountryStore from './store/CountryStore.js'
 import CountriesList from './components/CountriesList.vue';
-import countriesData from '../public/countries.json';
 
 export default {
   name: 'App',
   components: { Navbar, CountriesList },
-  data() {
-    return {
-      countries: countriesData,
-    };
-  },
+  methods: {
+    ...mapActions(CountryStore,['fetchCountries']),
+  },  
   computed: {
-    processCountries() {
-      var count = 0;
-      return this.countries.map(country => {
-        return {
-          id: ++count,
-          name: country.name.common,
-          alpha2Code: country.alpha2Code,
-          alpha3Code: country.alpha3Code,
-        }
-      });
-    },
-  }
+    ...mapState(CountryStore, ['countries']),
+  },
+  created() {
+    this.fetchCountries();
+  },
 }
 </script>
 
