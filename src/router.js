@@ -1,6 +1,7 @@
 // src/router.js
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from './views/HomeView.vue'
+import HomeView from './views/HomeView.vue';
+import CountryDetails from './views/CountryDetails.vue';
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
   {
     path: '/:countryCode',
     name: '/CountryDetails',
-    component: () => import('./components/CountryDetails.vue'),
+    component: CountryDetails,
   },
 ];
 

@@ -4,15 +4,15 @@ export default defineStore('countryStore', {
     state: () => {
         return {
             countries: [],
-            countryCodeSelected: '',
+            countrySelectedCode: '',
         }
     },
     getters: {
         processCountries() {
-            var count = 0;
+            let count = 0;
             return this.countries.map(country => {
                 return {
-                id: ++count,
+                id: count++,
                 name: country.name.common,
                 alpha2Code: country.alpha2Code,
                 alpha3Code: country.alpha3Code,
@@ -20,7 +20,7 @@ export default defineStore('countryStore', {
             });
         },
         countrySelected() {
-            const countryFound = this.countries.find( country => country.alpha3Code === this.countryCodeSelected);
+            const countryFound = this.countries.find( country => country.alpha3Code === this.countrySelectedCode);
             if(countryFound) {
                 return {
                     alpha2Code: countryFound.alpha2Code.toLowerCase(),
@@ -40,7 +40,8 @@ export default defineStore('countryStore', {
             this.countries = countriesData.reverse();
         },
         getCountry(countryCode) {
-            return this.countries.find(country => country.alpha3Code === this.countryCodeSelected);
+            this.countrySelectedCode = countryCode;
+          //  return this.countries.find(country => country.alpha3Code === this.countrySelectedCode);
         },
     },
 });

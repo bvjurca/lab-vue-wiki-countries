@@ -1,8 +1,14 @@
 <template>
-    <h1>Home View </h1>
 </template>
+
 <script>
 export default {
     name: 'HomeView',
 };
 </script>
+
+<style>
+#homeview {
+    flex: 0.8;
+}
+</style>

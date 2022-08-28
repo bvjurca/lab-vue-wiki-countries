@@ -1,5 +1,9 @@
 <template>
-    <h1>LAB - Wiki Countries</h1>
+    <nav class='navbar navbar-dark bg-primary mb-3'>
+        <div class="container">
+          <a class="navbar-brand" href="/">WikiCountries</a>
+        </div>
+    </nav>
 </template>
 <script>
 
