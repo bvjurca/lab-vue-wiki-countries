@@ -1,6 +1,7 @@
 // src/router.js
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from './views/HomeView.vue'
+import HomeView from './views/HomeView.vue';
+import CountryDetails from './views/CountryDetails.vue';
 
 const routes = [
   {
@@ -10,26 +11,12 @@ const routes = [
   },
   {
     path: '/:countryCode',
-    name: '/countryDetails',
+    name: '/CountryDetails',
+    component: CountryDetails,
   },
-//   {
-//     path: '/list',
-//     name: 'list',
-//     component: () => import(/* webpackChunkName: 'list' */ './pages/CountriesList.vue')
-//     children: [
-//       {
-//         path: '/details',
-//         name: 'details',
-//         component: () => import(/* webpackChunkName: 'details' */ './pages/CountriesDetails.vue')
-//       },
-//     ]
-//   }
 ];
 
 export default createRouter({
   history: createWebHistory('/'),
   routes,
-  scrollBehavior() {
-    document.getElementById('app').scrollIntoView();
-  }
 });
