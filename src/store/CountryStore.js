@@ -32,6 +32,10 @@ export default defineStore('countryStore', {
             }
             return null;
         },
+        // borderToName(border) {
+        //     const country = this.countries.find(country => country.alpha3Code === border);
+        //     return country.name.common;
+        // }
     },
     actions: {
         async fetchCountries() {

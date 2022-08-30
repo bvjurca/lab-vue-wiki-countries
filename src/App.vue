@@ -77,6 +77,10 @@ code {
   color: #61dafb;
 }
 
+.row {
+  flex-direction: row;
+}
+
 @keyframes app-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,6 +1,6 @@
 <template>
     <div class='countries-list col-5'>
-        <div class="scrollable list-group">
+        <div class="list-group">
             
             <router-link v-for="country in processCountries" 
             :key="country.id" 
@@ -30,21 +30,16 @@
 
 <style scoped>
 
-.scrollable {
- display: flex;
- flex-direction: column;
- justify-content: middle;
-}
-.scrollable a {
-    padding: 20px;
-}
-
 .scrollable a img {
     height: 40px;
     padding-right: 8px;
 }
 
 .countries-list {
-    margin: 20px;
+    overflow: scroll;
+    max-height: 90vh;
+    margin-bottom: 20px;
+    border-bottom: 2px #dfdfdf solid;
 }
+
 </style>

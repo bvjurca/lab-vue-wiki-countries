@@ -1,15 +1,14 @@
 <template>
     <div class="col-7 country-details" v-if= "countryFound !== null">
         <img :src="`https://flagpedia.net/data/flags/icon/72x54/${countryFound.alpha2Code}.png`"/>
-                {{ countryFound.name }}
-        <h1>{{ countryFound.name.common }}</h1>
+                <h1>{{ countryFound.name }}</h1>
         
         <table class="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style="width: 30%">Capital</td>
-                  <td>{{ countryFound.capital[0] }}</td>
+                  <td>{{ countryFound.capital }}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
@@ -81,3 +80,20 @@ export default {
 
 }
 </script>
+
+<style scoped>
+ul {
+    list-style: none;
+}
+
+li a {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+}
+
+.country-details {
+    width: 33vw;
+}
+
+</style>
